@@ -1,0 +1,303 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: verdana;
+    background-color:antiquewhite;
+    transition: background-color 1s;
+    height: 100%;
+}
+
+header {
+    background-color:black;
+    height: 3.75em;
+}
+
+.Logo {
+    float: left;
+    height: 50px;
+    margin-top: 0.3em;
+    margin-left: 0.3em;
+}
+
+.logoName {
+    position: absolute;
+    color: antiquewhite;
+    margin-top: 1.1em;
+    margin-left: 3.4em;
+}
+
+header {
+    position: sticky;
+    top: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav{
+    margin-left: 80%;
+}
+
+nav li {
+    margin-top: 1.1em;
+    margin-right: 2em;
+}
+
+.Invisible {
+    height: 95%;
+    width: 100%;
+    opacity: 0;
+    position:absolute;
+}
+
+.Invisible:hover {
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+h2 {
+    display: block;
+    padding-top: 10px;
+    text-align: center;
+}
+
+div.Head {
+    align-items: center;
+    justify-content: center;
+    height: 10em;
+}
+
+div#Mission:hover { 
+    color: antiquewhite;
+    background-color:#e79d06;
+    height: 25em;
+    transition: background-color 1s ease;
+    transition: height 1s;
+}
+
+div#Vision:hover {
+    color: antiquewhite;
+    background-color: #c08100;
+    height: 28em;
+    transition: background-color 1s ease;
+    transition: height 1s;
+}
+
+div#AboutUs:hover {
+    color: antiquewhite;
+    background-color: #9f6b00;
+    height: 25em;
+    transition: background-color 1s ease;
+    transition: height 1s;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:link{
+    text-decoration: none;
+    color: black;
+}
+
+a.nav {
+    color: white;
+    font-weight: normal;
+    transition: font-size 0.5s ease;
+}
+
+a.nav:hover {
+    font-size: larger;
+}
+
+a img {
+    transition: height 0.7s;
+}
+
+a img:hover {
+    height: 10em;
+    transition: height 0.7s;
+}
+
+.home-text{
+    width: 30em;
+    font-size: x-large;
+}
+
+div#Mission {
+    background-color: antiquewhite;
+    transition: background-color 1s;
+    transition: height 1s ease;
+}
+
+div#Vision {
+    background-color: antiquewhite;
+    transition: background-color 1s;
+    transition: height 1s ease;
+}
+
+div#AboutUs {
+    background-color: antiquewhite;
+    transition: background-color 1s;
+    transition: height 1s ease;
+}
+
+#mission-text{
+    margin-top: 3.5em;
+    margin-left: 5em;
+}
+
+.mission-img{
+    margin-left: 70%;
+    position: absolute;
+}
+
+#vision-text{
+    margin-left: 50%;
+    margin-top: 3.5em;
+}
+
+.vision-img{
+    margin-left: 20%;
+    margin-bottom: 5em;
+    position: absolute;
+}
+
+#ab-text{
+    margin-top: 3.5em;
+    margin-left: 5em;
+}
+
+.ab-img{
+    margin-left: 70%;
+    position: absolute;
+}
+
+li p {
+    margin-top: 3.3em;
+}
+
+footer{
+    padding: 1em;
+    background-color: burlywood;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer ul li{
+    list-style: none;
+}
+
+.formBase{
+    background-color: burlywood;
+    width: 25em;
+    margin: 0 auto;
+    border-radius: 15%;
+    margin-top: 5em;
+}
+
+.item{
+    background-color: burlywood;
+    width: 25em;
+    margin: 0 auto;
+    margin-top: 3em;
+    height: 10em;
+}
+
+div#logbase{
+    height: 20em;
+}
+
+div#signbase{
+    height: 25em;
+}
+
+
+div.formBase p{
+    opacity: 0;
+    text-align: center;
+}
+
+ul.loginform{
+    display: inline-block;
+    text-align: left;
+}
+
+input{
+    font-size: larger;
+    background-color: antiquewhite;
+    margin-top: 1em;
+    margin-left: 20%;
+}
+
+.formbutton{
+    margin-top: 10%;
+    margin-left: 40%;
+    font-size: larger;
+}
+
+.column{
+    flex: 1;
+    box-sizing: border-box;
+    border-style: solid;
+    border-top: 0px;
+    border-left: 0;
+    border-bottom: 0;
+}
+
+.itembase{
+    display: flex;
+    justify-content: space-between;
+}
+
+.info{
+    margin-left: 50%;
+}
+
+.button-74 {
+    background-color: #fbeee0;
+    border: 2px solid #422800;
+    border-radius: 30px;
+    box-shadow: #422800 4px 4px 0 0;
+    color: #422800;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 0 18px;
+    line-height: 50px;
+    text-align: center;
+    margin-top: 2em;
+    margin-left: 20em;
+  }
+  
+  .button-74:active {
+    box-shadow: #422800 2px 2px 0 0;
+    transform: translate(2px, 2px);
+  }
+
+.map{
+    margin-top: 2em;
+    margin-left: 40%;
+}
+
+.products_img1{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+}
+
+.products_img2{
+    width: 200px;
+    height: 150px;
+    position: absolute;
+}
+
