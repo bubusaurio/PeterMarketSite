@@ -4,7 +4,7 @@
 
 if(isset($_POST['submit'])){
   $username = mysqli_real_escape_string($conn, $_POST['username']);
-  $pass = md5($_POST['pass']);
+  $pass = mysqli_real_escape_string($conn, $_POST['pass']);
 
   $select = " SELECT username, password FROM user_form WHERE username = '$username' && password = '$pass' ";
 
@@ -12,10 +12,25 @@ if(isset($_POST['submit'])){
 
   if(mysqli_num_rows($result) > 0){
     echo 'Logged In';
-    header('location:index.html');
   }else{
     echo 'User or Password incorrect';
   }
+
+  $sql = "SELECT * FROM user_form WHERE username = '$username'";
+  $resultQuery = $conn ->query($sql);
+
+  if($resultQuery->num_rows>0){
+    $userData = $resultQuery->fetch_assoc();
+    session_start();
+    $_SESSION['user_type'] = $userData['user_type'];
+    $_SESSION['name'] = $userData['name'];
+    $_SESSION['username'] = $userData['username'];
+    $_SESSION['email'] = $userData['email'];
+    header('location:index.php');
+  }else{
+    echo "User not Found";
+  }
+
 };
 
 ?>
@@ -27,6 +42,7 @@ if(isset($_POST['submit'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="nav.css">
     <title>Login</title>
 </head>
 <body>
@@ -34,14 +50,25 @@ if(isset($_POST['submit'])){
     <header>
       <div>
         <p class="logoName">Peter Market</p>
+        <a class="cart" href="cart.php"><img src="./assets/shopping_cart.png" alt="" srcset="" height="30px" width="50px"></a>
         <nav>
           <ul>
-            <li><a href="index.html" class="nav" id="Home">Home</a></li>
-            <li><a href="products.html" class="nav" id="Products">Products</a></li>
+            <li><a href="index.php" class="nav" id="Home">Home</a></li>
+            <li><a href="products.php" class="nav" id="Products">Products</a></li>
+            <?php
+            session_start();
+            $user_type = $_SESSION['user_type'];
+            if($user_type == "admin"){
+              echo '<li><a href="edit_products.php" class="nav">EditProducts</a></li>';
+              echo '<li><a href="edit_users.php" class="nav">EditUsers</a></li>';
+            }
+            ?>
             <li><a href="login.php" class="nav" id="Login">Login</a></li>
             <li><a href="signup.php" class="nav" id="SignUp">SignUp</a></li>
+            <li><a href="endsession.php" class="nav">LogOut</a></li>
           </ul>
         </nav>
+      </div>
       </div>
     </header>
 
@@ -49,11 +76,10 @@ if(isset($_POST['submit'])){
         <h2>Login</h2>
         <form action="login.php" method="post">
             <ul class="loginform">
-                <input  name="username" type="text" placeholder="Username">
+                <input name="username" type="text" placeholder="Username">
                 <input name="pass" type="password" placeholder="Password">
                 <input type="submit" name="submit" value="Login" class="formbutton">
             </ul>
-  
         </form>
     </div>
 

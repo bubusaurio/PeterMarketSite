@@ -11,11 +11,6 @@ body {
     height: 100%;
 }
 
-header {
-    background-color:black;
-    height: 3.75em;
-}
-
 .Logo {
     float: left;
     height: 50px;
@@ -30,36 +25,10 @@ header {
     margin-left: 3.4em;
 }
 
-header {
-    position: sticky;
-    top: 0;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-}
-
-nav{
-    margin-left: 80%;
-}
-
-nav li {
-    margin-top: 1.1em;
-    margin-right: 2em;
-}
-
-.Invisible {
-    height: 95%;
-    width: 100%;
-    opacity: 0;
-    position:absolute;
-}
-
-.Invisible:hover {
-    opacity: 1;
-    transition: opacity 1s;
+.cart{
+    position: absolute;
+    margin-left: 95%;
+    margin-top: 1%;
 }
 
 h2 {
@@ -72,6 +41,11 @@ div.Head {
     align-items: center;
     justify-content: center;
     height: 10em;
+    text-align: center;
+}
+
+div.Head:hover{
+    text-align: unset;
 }
 
 div#Mission:hover { 
@@ -98,6 +72,16 @@ div#AboutUs:hover {
     transition: height 1s;
 }
 
+.hoverme{
+    display: block;
+    margin: 0 auto;
+    z-index: 100;
+}
+
+.hoverme:hover{
+    opacity: 0;
+}
+
 a:visited {
     text-decoration: none;
 }
@@ -117,14 +101,6 @@ a.nav:hover {
     font-size: larger;
 }
 
-a img {
-    transition: height 0.7s;
-}
-
-a img:hover {
-    height: 10em;
-    transition: height 0.7s;
-}
 
 .home-text{
     width: 30em;
@@ -160,12 +136,12 @@ div#AboutUs {
 }
 
 #vision-text{
-    margin-left: 50%;
+    margin-left: 40%;
     margin-top: 3.5em;
 }
 
 .vision-img{
-    margin-left: 20%;
+    margin-left: 10%;
     margin-bottom: 5em;
     position: absolute;
 }
@@ -299,5 +275,39 @@ input{
     width: 200px;
     height: 150px;
     position: absolute;
+}
+
+nav{
+    padding-bottom: 1.1em;
+}
+
+img {
+    opacity: 0;
+}
+
+.Invisible {
+    height: 95%;
+    width: 100%;
+    opacity: 0;
+    position:absolute;
+}
+
+.Invisible:hover {
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+@media(min-width: 800px){
+    img {
+        opacity: 1;
+    }
+
+    body{
+        overflow: hidden;
+    }
+}
+
+a img{
+    opacity: 1;
 }
 

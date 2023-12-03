@@ -6,7 +6,7 @@ if(isset($_POST['submit'])){
   $name = mysqli_real_escape_string($conn, $_POST['name']);
   $username = mysqli_real_escape_string($conn, $_POST['username']);
   $email = mysqli_real_escape_string($conn, $_POST['email']);
-  $pass = md5($_POST['pass']);
+  $pass = mysqli_real_escape_string($conn, $_POST['pass']);
 
   $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
 
@@ -19,7 +19,6 @@ if(isset($_POST['submit'])){
     mysqli_query($conn , $insert);
     header('location:login.php');
   }
-
 };
 
 ?>
@@ -31,6 +30,7 @@ if(isset($_POST['submit'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="nav.css">
     <title>SignUp</title>
 </head>
 <body>
@@ -38,12 +38,22 @@ if(isset($_POST['submit'])){
     <header>
       <div>
         <p class="logoName">Peter Market</p>
+        <a class="cart" href="cart.php"><img src="./assets/shopping_cart.png" alt="" srcset="" height="30px" width="50px"></a>
         <nav>
           <ul>
-            <li><a href="index.html" class="nav" id="Home">Home</a></li>
-            <li><a href="products.html" class="nav" id="Products">Products</a></li>
+            <li><a href="index.php" class="nav" id="Home">Home</a></li>
+            <li><a href="products.php" class="nav" id="Products">Products</a></li>
+            <?php
+            session_start();
+            $user_type = $_SESSION['user_type'];
+            if($user_type == "admin"){
+              echo '<li><a href="edit_products.php" class="nav">EditProducts</a></li>';
+              echo '<li><a href="edit_users.php" class="nav">EditUsers</a></li>';
+            }
+            ?>
             <li><a href="login.php" class="nav" id="Login">Login</a></li>
             <li><a href="signup.php" class="nav" id="SignUp">SignUp</a></li>
+            <li><a href="endsession.php" class="nav">LogOut</a></li>
           </ul>
         </nav>
       </div>
