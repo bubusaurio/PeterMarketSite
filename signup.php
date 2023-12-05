@@ -7,16 +7,23 @@ if(isset($_POST['submit'])){
   $username = mysqli_real_escape_string($conn, $_POST['username']);
   $email = mysqli_real_escape_string($conn, $_POST['email']);
   $pass = mysqli_real_escape_string($conn, $_POST['pass']);
+  $street = mysqli_real_escape_string($conn, $_POST['street']);
+  $pc = mysqli_real_escape_string($conn, $_POST['postalcode']);
+  $extNumber = mysqli_real_escape_string($conn, $_POST['extnumber']);
+  $intNumber = mysqli_real_escape_string($conn, $_POST['intnumber']);
+
 
   $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
 
   $result = mysqli_query($conn, $select);
 
   if(mysqli_num_rows($result) > 0){
-    $error[] = 'User already exist';
+    echo 'User already exist';
   }else{
-    $insert = "INSERT INTO user_form(name, username, email, password) VALUES('$name', '$username' ,'$email', '$pass')";
-    mysqli_query($conn , $insert);
+    $insertUser = "INSERT INTO user_form(name, username, email, password) VALUES('$name', '$username' ,'$email', '$pass')";
+    $insertAddress = " INSERT INTO addresses(username, street, extnumber, intnumber, postalcode) VALUES ('$username', '$street', '$extNumber', '$intNumber', '$pc') ";
+    mysqli_query($conn , $insertUser);
+    mysqli_query($conn , $insertAddress);
     header('location:login.php');
   }
 };
@@ -49,11 +56,13 @@ if(isset($_POST['submit'])){
             if($user_type == "admin"){
               echo '<li><a href="edit_products.php" class="nav">EditProducts</a></li>';
               echo '<li><a href="edit_users.php" class="nav">EditUsers</a></li>';
+              echo '<li><a href="log.php" class="nav">DevLog</a></li>';
             }
             ?>
             <li><a href="login.php" class="nav" id="Login">Login</a></li>
             <li><a href="signup.php" class="nav" id="SignUp">SignUp</a></li>
             <li><a href="endsession.php" class="nav">LogOut</a></li>
+            <li><a href="delivery.php" class="nav">Delivery</a></li>
           </ul>
         </nav>
       </div>
@@ -74,6 +83,11 @@ if(isset($_POST['submit'])){
               <input name="username" type="text" placeholder="Username">
               <input name="email" type="email" placeholder="Email">
               <input name="pass" type="password" placeholder="Password">
+              <h3>Address Info</h3>
+              <input name="street" type="text" placeholder="Street">
+              <input name="postalcode" type="text" placeholder="PostalCode">
+              <input name="extnumber" type="text" placeholder="Ext.Number">
+              <input name="intnumber" type="text" placeholder="Int.Number">
               <input type="submit" name="submit" value="Signup" class="formbutton">
            </ul>
         </form>

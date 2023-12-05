@@ -23,22 +23,18 @@
             if($user_type == "admin"){
               echo '<li><a href="edit_products.php" class="nav">EditProducts</a></li>';
               echo '<li><a href="edit_users.php" class="nav">EditUsers</a></li>';
+              echo '<li><a href="log.php" class="nav">DevLog</a></li>';
             }
             ?>
             <li><a href="login.php" class="nav" id="Login">Login</a></li>
             <li><a href="signup.php" class="nav" id="SignUp">SignUp</a></li>
             <li><a href="endsession.php" class="nav">LogOut</a></li>
+            <li><a href="delivery.php" class="nav">Delivery</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <footer>
-      <ul>
-        <li>Name: Pedro Yazael Mercado Ruano - 4P</li>
-        <li>Subjects: DW, BD</li>
-      </ul>
-    </footer>
   </body>
 </html>
 <?php

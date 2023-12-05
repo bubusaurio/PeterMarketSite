@@ -9,6 +9,9 @@ body {
     background-color:antiquewhite;
     transition: background-color 1s;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .Logo {
@@ -166,6 +169,7 @@ footer{
     position: absolute;
     bottom: 0;
     width: 100%;
+    margin-top: auto;
 }
 
 footer ul li{
@@ -193,7 +197,7 @@ div#logbase{
 }
 
 div#signbase{
-    height: 25em;
+    height: 35em;
 }
 
 
@@ -212,6 +216,11 @@ input{
     background-color: antiquewhite;
     margin-top: 1em;
     margin-left: 20%;
+}
+
+h3{
+    margin-top: 1em;
+    margin-left: 32%;
 }
 
 .formbutton{
@@ -281,9 +290,6 @@ nav{
     padding-bottom: 1.1em;
 }
 
-img {
-    opacity: 0;
-}
 
 .Invisible {
     height: 95%;
@@ -292,18 +298,19 @@ img {
     position:absolute;
 }
 
-.Invisible:hover {
+.Invisible:hover{
     opacity: 1;
     transition: opacity 1s;
 }
 
+#checkout-btn{
+    margin-left: 40%;
+}
+
 @media(min-width: 800px){
-    img {
-        opacity: 1;
-    }
 
     body{
-        overflow: hidden;
+        overflow-x: hidden;
     }
 }
 

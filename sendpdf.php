@@ -137,7 +137,7 @@ try {
 	$mail->SMTPDebug = SMTP::DEBUG_OFF;
 	$mail->send();
 	echo "Mail has been sent successfully!";
-    header('location:products.php');
+    header('location:edit_products.php');
 } catch (Exception $e) {
 	echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }

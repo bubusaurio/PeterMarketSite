@@ -26,6 +26,17 @@ if(isset($_POST['submit'])){
     $_SESSION['name'] = $userData['name'];
     $_SESSION['username'] = $userData['username'];
     $_SESSION['email'] = $userData['email'];
+
+    $sql2 = " SELECT * FROM addresses WHERE username = '$username'";
+    $resultQuery2 = $conn->query($sql2);
+    if($resultQuery2->num_rows>0){
+      $userAddress = $resultQuery2->fetch_assoc();
+      $_SESSION['street'] = $userAddress['street'];
+      $_SESSION['extnumber'] = $userAddress['extnumber'];
+      $_SESSION['intnumber'] = $userAddress['intnumber'];
+      $_SESSION['postalcode'] = $userAddress['postalcode'];
+    }
+
     header('location:index.php');
   }else{
     echo "User not Found";
@@ -61,11 +72,13 @@ if(isset($_POST['submit'])){
             if($user_type == "admin"){
               echo '<li><a href="edit_products.php" class="nav">EditProducts</a></li>';
               echo '<li><a href="edit_users.php" class="nav">EditUsers</a></li>';
+              echo '<li><a href="log.php" class="nav">DevLog</a></li>';
             }
             ?>
             <li><a href="login.php" class="nav" id="Login">Login</a></li>
             <li><a href="signup.php" class="nav" id="SignUp">SignUp</a></li>
             <li><a href="endsession.php" class="nav">LogOut</a></li>
+            <li><a href="delivery.php" class="nav">Delivery</a></li>
           </ul>
         </nav>
       </div>
