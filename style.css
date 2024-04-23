@@ -75,12 +75,6 @@ div#AboutUs:hover {
     transition: height 1s;
 }
 
-.hoverme{
-    display: block;
-    margin: 0 auto;
-    z-index: 100;
-}
-
 .hoverme:hover{
     opacity: 0;
 }
@@ -135,7 +129,7 @@ div#AboutUs {
 
 .mission-img{
     margin-left: 70%;
-    position: absolute;
+    position:fixed
 }
 
 #vision-text{
@@ -146,7 +140,7 @@ div#AboutUs {
 .vision-img{
     margin-left: 10%;
     margin-bottom: 5em;
-    position: absolute;
+    position: fixed;
 }
 
 #ab-text{
@@ -156,7 +150,7 @@ div#AboutUs {
 
 .ab-img{
     margin-left: 70%;
-    position: absolute;
+    position: fixed;
 }
 
 li p {
@@ -317,4 +311,3 @@ nav{
 a img{
     opacity: 1;
 }
-

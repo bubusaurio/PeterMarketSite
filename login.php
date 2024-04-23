@@ -57,7 +57,6 @@ if(isset($_POST['submit'])){
     <title>Login</title>
 </head>
 <body>
-    <script src="js/app.js"></script>
     <header>
       <div>
         <p class="logoName">Peter Market</p>

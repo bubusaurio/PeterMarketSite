@@ -16,3 +16,30 @@ nav ul {
 li{
     margin-left: 1em;
 }
+
+a {
+    font-size: small;
+}
+
+@media(max-width: 800px){
+    .logoName{
+        display: none;
+    }
+
+    .Head img{
+        display: none;
+    }
+
+    .home-text{
+        font-size: small;
+    }
+
+    #vision-text{
+        margin-left: 10%;
+        margin-top: 3.5em;
+    }
+
+    .hoverme{
+        font-size: small;
+    }
+}

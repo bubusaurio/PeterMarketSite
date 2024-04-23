@@ -23,7 +23,6 @@ if (isset($_POST['submitUpdate'])) {
   $Quantity = mysqli_real_escape_string($conn, $_POST['productQ']);
   
   $targetFile = "./img/" . basename($_FILES["productImage"]["name"]);
-
   $update = " UPDATE products SET price='$price', description='$des', quantity='$Quantity', image='$targetFile' WHERE name='$name' ";
 
   if ($conn->query($update) === TRUE) {
